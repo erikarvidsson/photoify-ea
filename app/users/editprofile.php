@@ -36,8 +36,13 @@ if (isset($_POST['first-name'], $_POST['last-name'], $_POST['user-name'], $_POST
       $date = date("Y-m-d, g:i a");
       $id = $_SESSION['user']['id'];
 
-      $statement = $pdo->prepare('UPDATE users(last_name, first_name, email, username, password, profile_img, signup_date, user_text)
-      VALUES(:last_name, :first_name, :email, :username, :password, :profile_img, :signup_date, :user_text ) WHERE :id = $id');
+      $statement = $pdo->prepare('UPDATE users SET last_name = :last_name, first_name = :first_name, email = :email, username = :username,
+        password = :password, profile_img = :profile_img, user_text = :user_text WHERE id = :user_id');
+
+      // $statement = $pdo->prepare('UPDATE users(last_name, first_name, email, username, password, profile_img, signup_date, user_text)
+      // VALUES(:last_name, :first_name, :email, :username, :password, :profile_img, :signup_date, :user_text ) WHERE id = $id');
+      //
+      print_r($statement);
 
       if(!$statement){
         die(var_dump($pdo->errorInfo()));
@@ -50,7 +55,8 @@ if (isset($_POST['first-name'], $_POST['last-name'], $_POST['user-name'], $_POST
       $statement->bindParam(':password', $password, PDO::PARAM_STR);
       $statement->bindParam(':user_text', $usertext, PDO::PARAM_STR);
       $statement->bindParam(':profile_img', $prifileimg, PDO::PARAM_STR);
-      $statement->bindParam(':signup_date', $date, PDO::PARAM_STR);
+      $statement->bindParam(':user_id', $id, PDO::PARAM_INT);
+      print_r($statement);
       $statement->execute();
 
 };
@@ -67,7 +73,7 @@ echo $_SESSION['user']['id'];
     <title></title>
   </head>
   <body>
-    <form class="" action="newaccount.php" method="post">
+    <form class="" action="editprofile.php" method="post">
 
       <input name="first-name" placeholder="<?= $currentusers['first_name']; ?>">First Name:</input>
       <input name="last-name" placeholder="<?= $currentusers['last_name']; ?>">Last Name:</input>
