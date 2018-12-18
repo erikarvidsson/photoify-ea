@@ -33,7 +33,7 @@ if (isset($_POST['first-name'], $_POST['last-name'], $_POST['user-name'], $_POST
       $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
       $usertext = filter_var($_POST['user_text'], FILTER_SANITIZE_STRING);
       $prifileimg = $_POST['profile_img'];
-      $date = date("Y-m-d, g:i a");
+      $date = date("Y-m-d, H:i:s");
       $id = $_SESSION['user']['id'];
 
       $statement = $pdo->prepare('UPDATE users SET last_name = :last_name, first_name = :first_name, email = :email, username = :username,
@@ -41,7 +41,7 @@ if (isset($_POST['first-name'], $_POST['last-name'], $_POST['user-name'], $_POST
 
       // $statement = $pdo->prepare('UPDATE users(last_name, first_name, email, username, password, profile_img, signup_date, user_text)
       // VALUES(:last_name, :first_name, :email, :username, :password, :profile_img, :signup_date, :user_text ) WHERE id = $id');
-      //
+
       print_r($statement);
 
       if(!$statement){
