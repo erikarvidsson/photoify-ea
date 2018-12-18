@@ -54,14 +54,16 @@ if (isset($_POST['first-name'], $_POST['last-name'], $_POST['user-name'], $_POST
       $statement->bindParam(':email', $email, PDO::PARAM_STR);
       $statement->bindParam(':password', $password, PDO::PARAM_STR);
       $statement->bindParam(':user_text', $usertext, PDO::PARAM_STR);
-      $statement->bindParam(':profile_img', $prifileimg, PDO::PARAM_STR);
+      $statement->bindParam(':profile_img', $prifileimg);
       $statement->bindParam(':user_id', $id, PDO::PARAM_INT);
       print_r($statement);
       $statement->execute();
 
 };
 
-echo $currentusers['email'];
+echo '<img src="data:image/jpeg;base64,'.base64_encode( $currentusers['profile_img'] ).'"/>';
+
+// echo $currentusers['profile_img'];
 echo $_SESSION['user']['id'];
   ?>
 
@@ -80,7 +82,7 @@ echo $_SESSION['user']['id'];
       <input name="user-name" placeholder="<?= $currentusers['username']; ?>">Username:</input>
       <input name="email" placeholder="<?= $currentusers['email']; ?>">Email:</input>
       <input name="password"  type="password" value="FakePSW" placeholder="<?= $currentusers['password']; ?>">Password:</input>
-      <textarea name="user_text" placeholder="<?= $currentusers['user_text']; ?>">About</textarea>
+      <textarea name="user_text" placeholder=""><?= $currentusers['user_text']; ?></textarea>
       <input type="file" id="profile_img" name="profile_img" accept="image/png, image/jpeg"><img src="<?= $currentusers['profile_img']; ?>"></input>
       <button type="submit" name="button"> knapp</button>
 
