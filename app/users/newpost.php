@@ -42,6 +42,8 @@ if (isset($_FILES['img'])){
       $oldpath = $img['tmp_name'];
       $newpath = $path.$img['name'];
       move_uploaded_file($oldpath, $newpath);
+
+      redirect('/../../posts.php');
       }else{
         echo "Sorry, file already exists.";
       };

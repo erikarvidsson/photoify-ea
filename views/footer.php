@@ -16,6 +16,7 @@
          <a href="/app/users/logout.php">ut</a>
          <a href="/app/users/newpost.php">new post</a>
          <a href="/app/users/editprofile.php">eddit profile</a>
+         <a href="/posts.php">All post</a>
      </article>
    </body>
  </html>
