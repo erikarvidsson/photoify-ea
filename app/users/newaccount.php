@@ -4,7 +4,7 @@ require __DIR__.'/../autoload.php';
     // $pdo = new PDO('sqlite:photoify.db');
 
 if (isset($_POST['first-name'], $_POST['last-name'], $_POST['user-name'], $_POST['email'], $_POST['password'],
-    $_POST['user_text'], $_POST['profile_img'])){
+    $_POST['user_text'])){
 
       $firstname = filter_var($_POST['first-name'], FILTER_SANITIZE_STRING);
       $lastname = filter_var($_POST['last-name'], FILTER_SANITIZE_STRING);
@@ -12,7 +12,8 @@ if (isset($_POST['first-name'], $_POST['last-name'], $_POST['user-name'], $_POST
       $email = filter_var($_POST['email'], FILTER_SANITIZE_STRING);
       $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
       $usertext = filter_var($_POST['user_text'], FILTER_SANITIZE_STRING);
-      $prifileimg = $_POST['profile_img'];
+
+      // $img = $_FILES['profile_img'];
       $date = date("Y-m-d, g:i a");
 
       $statement = $pdo->prepare('INSERT INTO users(last_name, first_name, email, username, password, profile_img, signup_date, user_text)
@@ -28,11 +29,53 @@ if (isset($_POST['first-name'], $_POST['last-name'], $_POST['user-name'], $_POST
       $statement->bindParam(':email', $email, PDO::PARAM_STR);
       $statement->bindParam(':password', $password, PDO::PARAM_STR);
       $statement->bindParam(':user_text', $usertext, PDO::PARAM_STR);
-      $statement->bindParam(':profile_img', $prifileimg, PDO::PARAM_STR);
       $statement->bindParam(':signup_date', $date, PDO::PARAM_STR);
       $statement->execute();
 
-};
+      redirect('/');
+
+      };
+
+
+
+
+      // $statement = $pdo->prepare('SELECT * FROM users WHERE email = :email');
+      // $statement->bindParam(':email', $email, PDO::PARAM_STR);
+      // $statement->execute();
+      //
+      //
+      // $users = $statement->fetch(PDO::FETCH_ASSOC);
+      //
+      // print_r($users);
+      //
+      // $emailDb = $users['email'];
+      // $passwordDb = $users['password'];
+      //
+      //     if($emailDb === $email && password_verify($password, $passwordDb)){
+      //       echo 'yes :)';
+      //
+
+      // }
+      //
+      //     $id = $users['id'];
+      //     $folder = $id;
+      //
+      //     if (!is_dir(__DIR__."/../post_img/$folder/profile_img")) {
+      //       mkdir(__DIR__."/../post_img/$folder/profile_img");
+      //     };
+      //
+      //     $path = __DIR__.'/../post_img/'.$folder.'/profile_img';
+      //
+      //     print_r($_FILES);
+      //
+      //     // if (file_exists($path.$_FILES['name'])) {
+      //     //   die;
+      //     // }
+      //
+      //     $oldpath = $_FILES['tmp_name'];
+      //     $newpath = $path.$_FILES['name'];
+      //     move_uploaded_file($oldpath, $newpath);
+
 
   ?>
 
@@ -52,7 +95,8 @@ if (isset($_POST['first-name'], $_POST['last-name'], $_POST['user-name'], $_POST
       <input name="email" placeholder="email"></input>
       <input name="password" placeholder="Password"></input>
       <input name="user_text" placeholder="About"></input>
-      <input type="file" id="profile_img" name="profile_img" accept="image/png, image/jpeg">
+      <!-- <input type="file" id="profile_img" name="profile_img" accept="image/png, image/jpeg"> -->
+      <!-- <input type="file" name="profile_img"> -->
       <button type="submit" name="button"> knapp</button>
 
     </form>
