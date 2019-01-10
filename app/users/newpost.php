@@ -15,11 +15,11 @@ if (isset($_FILES['img'])){
       $usertext = $_POST['post_text'];
 
 
-      if (!is_dir(__DIR__."/../post_img/img/")) {
-        mkdir(__DIR__."/../post_img/img");
+      if (!is_dir(__DIR__."/..img//post_img/")) {
+        mkdir(__DIR__."/../img/post_img");
       };
 
-      $path = __DIR__.'/../post_img/img/';
+      $path = __DIR__.'/../img/post_img/';
 
       if (file_exists($path.$img['name'])) {
         redirect('/app/users/newpost.php');

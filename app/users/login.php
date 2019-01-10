@@ -17,27 +17,17 @@ if (isset($_POST['email'], $_POST['password'])){
 
   $users = $statement->fetch(PDO::FETCH_ASSOC);
 
-  print_r($users);
-
-
   $emailDb = $users['email'];
   $passwordDb = $users['password'];
 
-      if($emailDb === $email && password_verify($password, $passwordDb)){
-        echo 'yes :)';
 
-        $session = [
-          'id' => $users['id'],
-          'name' => $users['first_name'],
-          'email' => $users['email']];
 
-        $_SESSION['user'] = $session;
+      if(password_verify($password, $passwordDb)){
+
+        $_SESSION['user'] = $users;
 
         redirect('/');
-      }else{
-      echo 'neej :(';
       }
-
-
+    redirect('/login.php');
 }
 // echo $_SESSION['user']['name'];

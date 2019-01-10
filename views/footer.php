@@ -18,5 +18,6 @@
          <a href="/app/users/editprofile.php">eddit profile</a>
          <a href="/posts.php">All post</a>
      </article>
+     <script src="/assets/main.js"></script>
    </body>
  </html>

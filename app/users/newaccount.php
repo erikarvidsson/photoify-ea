@@ -12,12 +12,12 @@ if (isset($_POST['first-name'], $_POST['last-name'], $_POST['user-name'], $_POST
       $email = filter_var($_POST['email'], FILTER_SANITIZE_STRING);
       $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
       $usertext = filter_var($_POST['user_text'], FILTER_SANITIZE_STRING);
-
-      // $img = $_FILES['profile_img'];
       $date = date("Y-m-d, g:i a");
 
-      $statement = $pdo->prepare('INSERT INTO users(last_name, first_name, email, username, password, profile_img, signup_date, user_text)
-      VALUES(:last_name, :first_name, :email, :username, :password, :profile_img, :signup_date, :user_text )');
+
+
+      $statement = $pdo->prepare('INSERT INTO users(last_name, first_name, email, username, password, signup_date, user_text)
+      VALUES(:last_name, :first_name, :email, :username, :password, :signup_date, :user_text )');
 
       if(!$statement){
         die(var_dump($pdo->errorInfo()));
@@ -31,6 +31,14 @@ if (isset($_POST['first-name'], $_POST['last-name'], $_POST['user-name'], $_POST
       $statement->bindParam(':user_text', $usertext, PDO::PARAM_STR);
       $statement->bindParam(':signup_date', $date, PDO::PARAM_STR);
       $statement->execute();
+
+      $statement = $pdo->prepare('SELECT * FROM users WHERE email = :email');
+      $statement->bindParam(':email', $email, PDO::PARAM_STR);
+      $statement->execute();
+
+      $users = $statement->fetch(PDO::FETCH_ASSOC);
+      $_SESSION['user'] = $users;
+
 
       redirect('/');
 
@@ -87,18 +95,14 @@ if (isset($_POST['first-name'], $_POST['last-name'], $_POST['user-name'], $_POST
     <title></title>
   </head>
   <body>
-    <form class="" action="newaccount.php" method="post">
-
+    <form class="" action="newaccount.php" method="post" enctype="multipart/form-data">
       <input name="first-name" placeholder="First Name"></input>
       <input name="last-name" placeholder="Last Name"></input>
       <input name="user-name" placeholder="User Name"></input>
       <input name="email" placeholder="email"></input>
       <input name="password" placeholder="Password"></input>
       <input name="user_text" placeholder="About"></input>
-      <!-- <input type="file" id="profile_img" name="profile_img" accept="image/png, image/jpeg"> -->
-      <!-- <input type="file" name="profile_img"> -->
       <button type="submit" name="button"> knapp</button>
-
     </form>
 
   </body>
