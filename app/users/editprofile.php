@@ -128,6 +128,7 @@ if (isset($_POST['first-name'], $_POST['last-name'], $_POST['user-name'], $_POST
         unlink($path.$post['img']);
       }
 
+      // delete profile from database
       $statement = $pdo->prepare('DELETE FROM users WHERE id = :user_id');
 
       $statement->bindParam(':user_id', $id, PDO::PARAM_INT);
@@ -146,63 +147,45 @@ if (isset($_POST['first-name'], $_POST['last-name'], $_POST['user-name'], $_POST
       session_unset();
       session_destroy();
       redirect('/');
-    }else{
     }
-  }
+    }
+
+    // uppdate password
+if (isset($_POST['old-password'], $_POST['new-password'], $_POST['confirm-password'])) {
+
+    if ($_POST['new-password'] === $_POST['confirm-password']) {
+
+        $user_id = (int)$_SESSION['user']['id'];
+        $new_password = password_hash($_POST['new-password'], PASSWORD_DEFAULT);
+
+        $statement = $pdo->prepare('SELECT * FROM users WHERE id = :user_id');
+        // $statement = $pdo->prepare('SELECT * FROM users');
+        if(!$statement){
+          die(var_dump($pdo->errorInfo()));
+        }
+
+        $statement->bindParam(':user_id', $user_id, PDO::PARAM_STR);
+        $statement->execute();
+
+        $user = $statement->fetch(PDO::FETCH_ASSOC);
+
+        if (password_verify($_POST['old-password'], $user['password'])) {
+
+            $statement = $pdo->prepare('UPDATE users SET password = :password WHERE id = :id');
 
 
-  ?>
+            if (!$statement)
+            {
+                die(var_dump($pdo->errorInfo()));
+            }
 
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="style/sanitize.css">
-    <title></title>
-  </head>
-  <body>
-      <img src="../img/profile_img/<?php if(empty($_SESSION['user']['profile_img'])){
-        echo 'default.jpg';
-      } else{
-        echo $_SESSION['user']['profile_img'];
+            $statement->bindParam(':password', $new_password, PDO::PARAM_STR);
+            $statement->bindParam(':id', $user_id, PDO::PARAM_INT);
+
+            $statement->execute();
+
+            redirect('/index.php');
+        }
       }
-      ?>">
-      <br>
-
-    <!-- uppdate user info -->
-    <form class="" action="editprofile.php" method="post" enctype="multipart/form-data">
-      <label for="first-name">First Name:</label>
-      <input name="first-name" value="<?= $_SESSION['user']['first_name']; ?>"></input>
-      <br>
-      <label for="last-name">Last Name:</label>
-      <input name="last-name" value="<?= $_SESSION['user']['last_name']; ?>"></input>
-      <br>
-      <label for="user-name">Username:</label>
-      <input name="user-name" value="<?= $_SESSION['user']['username']; ?>"></input>
-      <br>
-      <label for="email">Email:</label>
-      <input name="email" value="<?= $_SESSION['user']['email']; ?>"></input>
-      <br>
-      <label for="user_text">BIO</label>
-      <br>
-      <textarea name="user_text" value=""><?= $_SESSION['user']['user_text']; ?></textarea>
-      <br>
-      <button type="submit" name="button"> Uppdate profile</button>
-    </form>
-
-    <!-- change profile picture -->
-    <form class="" action="editprofile.php" method="post" enctype="multipart/form-data">
-      <input type="file" name="profile_img"></input>
-      <br>
-      <button type="submit" name="button"> Change profile picture</button>
-    </form>
-
-    <!-- change password -->
-    <form class="" action="editprofile.php" method="post" enctype="multipart/form-data">
-      <label for="password">Password:</label>
-      <input name="password"  type="password" value="FakePSW" value="*****"></input>
-      <button type="submit" name="button"> delet account</button>
-    </form>
-
-  </body>
-</html>
+    }
+?>
