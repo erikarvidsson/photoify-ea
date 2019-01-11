@@ -1,16 +1,16 @@
-<?php require __DIR__.'/views/header.php';
+<?php
+require __DIR__.'/views/header.php';
 ?>
 
 
 <?php
   if(isset($_SESSION['user'])){
-    echo 'Welcome, '.$_SESSION['user']['first_name'].'!';
-    echo 'Welcome, '.$_SESSION['user']['email'].'!';
-    echo 'Welcome, '.$_SESSION['user']['id'].'!';
+    redirect('/posts.php');
   }else{
-    echo 'You are out';
+    redirect('/login.php');
   }
 ?>
 <?php
 
+require __DIR__.'/views/nav.php';
 require __DIR__.'/views/footer.php'; ?>
