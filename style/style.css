@@ -1,0 +1,229 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat");
+
+@media (min-width:480px)  {
+
+    body{
+      overflow-x: hidden;
+      width: 480px;
+      max-width: 100vw;
+
+    }
+    .banner{
+      position:fixed;
+      background-color: white;
+      height: 200px;
+      width: 100vw;
+      top: 0;
+      margin: 0px;
+      display: grid;
+      align-items: center;
+      justify-items: center;
+      font-family: Courier;
+      position: fixed; /* Make it stick/fixed */
+      top: 0; /* Stay on top */
+      width: 100%; /* Full width */
+      transition: top 0.5s; /* Transition effect when sliding down (and up) */
+    }
+    h1.banner{
+      font-family: SignPainter;
+      font-size: 120px;
+      color: #ff7a7e;
+    }
+
+    h4{
+      width: 100vw;
+      font-size: 48px;
+      padding-left: 28px;
+      font-family: Courier;
+      color: rgba(0, 0, 0, 0.5);
+    }
+    .postname{
+      border-top: 0.5px solid rgba(0, 0, 0, 0.5);
+      padding-top: 28px;
+      margin-bottom: 28px;
+    }
+    p{
+      width: 100vw;
+      font-size: 48px;
+      font-family: Courier;
+      padding-left: 28px;
+      color: rgba(0, 0, 0, 0.5);
+    }
+
+    a{
+      text-decoration: none;
+      color: white;
+      font-size: 48px;
+      font-family: Courier;
+      padding-left: 28px;
+    }
+    a, img{
+      text-decoration: none;
+      color: white;
+      font-size: 48px;
+      padding-left: 0px;
+    }
+
+    img{
+      width: 100vw;
+      max-height: 140vh;
+      margin: 0;
+      color: rgba(0, 0, 0, 0.5);
+    }
+
+    /* navigation bottom bar */
+    .navbar {
+      background-color: white;
+      position: fixed; /* Set the navbar to fixed position */
+      bottom: 0; /* Position the navbar at the top of the page */
+      width: 100vw; /* Full width */
+      height: 160px;
+      display: grid;
+      justify-items: center;
+      align-items: center;
+      border-radius: 10px;
+    }
+    .navbar a{
+    color: rgba(0, 0, 0, 0.5);}
+
+    .nav-post{
+      display: inline-grid;
+      grid-column-start: 1;
+      grid-column-end: 2;
+    }
+    .nav-add{
+      display: inline-grid;
+      grid-column-start: 2;
+      grid-column-end: 3;
+    }
+    .nav-profile{
+      display: inline-grid;
+      grid-column-start: 3;
+      grid-column-end: 4;
+    }
+
+    /* likebar under img style */
+    .like-bar{
+      width: 100vw;
+      margin-top: 20px;
+      display: grid;
+    }
+    .like-bar p{
+      padding: 0;
+      margin: 0;
+    }
+    .like-btn{
+      width: 100px;
+      height: 100px;
+      margin-left: 28px;
+      background-image: url("../assets/icons/heart-outline.svg");
+      display: inline-grid;
+      background-color: white;
+      border: none;
+      grid-column-start: 1;
+      grid-column-end: 2;
+    }
+
+    .like-btn:checked{
+      width: 100px;
+      height: 100px;
+      background-repeat: no-repeat;
+      background-color: white;
+      border: none;
+      background-size: cover;
+      background-image: url("../assets/icons/heart-red.svg");
+    }
+
+    .red-heart-btn{
+      width: 100px;
+      height: 100px;
+      background-repeat: no-repeat;
+      background-color: white;
+      border: none;
+      background-size: cover;
+      background-image: url("../assets/icons/heart-red.svg");
+    }
+
+
+    .like-counter{
+      width: 100px;
+      height: 100px;
+      font-size: 40px;
+      white-space: nowrap;
+      margin: 0;
+      display: inline-grid;
+      justify-self: center;
+      align-items: center;
+      grid-column-start: 2;
+      grid-column-end: 3;
+
+    }
+    .comment-btn{
+      width: 100px;
+      height: 100px;
+      margin-right: 28px;
+      background-image: url("../assets/icons/comment.svg");
+      justify-self: right;
+      align-items: center;
+      display: inline-grid;
+      grid-column-start: 3;
+      grid-column-end: 4;
+    }
+
+    /* loggin page styling */
+    .loggin-page{
+      height: 70vh;
+      width: 100vw;
+      position: relative;
+      align-content: center;
+      justify-content: center;
+    }
+    .loggin-logo{
+      width: 100vw;
+      margin-top: 30vh;
+      font-family: SignPainter;
+      font-size: 220px;
+      color: #ff7a7e;
+      text-align: center;
+    }
+    .loggin-form{
+      width: 100vw;
+      padding-top:100px;
+      padding-left: 15%;
+      padding-right: 15%;
+    }
+    .loggin-form .form-control{
+      background-color: white;
+      width: 700px;
+      height: 120px;
+      margin-bottom: 100px;
+      border-radius: 70px;
+      font-size: 48px;
+      box-shadow: 0px 0px 10px 10px rgba(0, 0, 0, 0.2);
+      padding-left: 50px;
+      color: rgba(0, 0, 0, 0.5);
+    }
+
+    /* newpost styling */
+    .newpost-form{
+      width: 70vw;
+      margin-left: 31%;
+      margin-right: 15%;
+    }
+    .newpost-form textarea{
+      font-size: 48px;
+      width: 70vw;
+      height: 20vh;
+      border-color: rgba(0, 0, 0, 0.5);
+    }
+    .choseimg-form{
+      font-size: 48px;
+      width: 70vw;
+      height: 60vw;
+      border-color: rgba(0, 0, 0, 0.5);
+      background-color: rgba(0, 0, 0, 0.2);
+      margin-bottom: 10vh;
+      text-align: center;
+
+    }
+}
