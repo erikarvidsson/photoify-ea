@@ -196,9 +196,9 @@
       background-color: white;
       width: 700px;
       height: 120px;
+      font-size: 48px;
       margin-bottom: 100px;
       border-radius: 70px;
-      font-size: 48px;
       box-shadow: 0px 0px 10px 10px rgba(0, 0, 0, 0.2);
       padding-left: 50px;
       color: rgba(0, 0, 0, 0.5);
@@ -210,20 +210,42 @@
       margin-left: 31%;
       margin-right: 15%;
     }
+    #image{
+      width: 100vw;
+      height: 100vw;
+      background-color: rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+    }
     .newpost-form textarea{
       font-size: 48px;
       width: 70vw;
-      height: 20vh;
+      height: 10vh;
       border-color: rgba(0, 0, 0, 0.5);
     }
     .choseimg-form{
       font-size: 48px;
       width: 70vw;
-      height: 60vw;
+      height: 100px;
       border-color: rgba(0, 0, 0, 0.5);
-      background-color: rgba(0, 0, 0, 0.2);
-      margin-bottom: 10vh;
+      background-color: white;
+      margin-bottom: 3vh;
       text-align: center;
+      border-radius: 70px;
+      box-shadow: 0px 0px 10px 10px rgba(0, 0, 0, 0.2);
+      display: table-cell;
+      vertical-align: middle;  
+    }
+    .newpost-form button{
+      font-size: 48px;
+      width: 70vw;
+      height: 100px;
+      margin-top: 2vh;
+      border-color: rgba(0, 0, 0, 0.5);
+      background-color: white;
+      margin-bottom: 3vh;
+      text-align: center;
+      border-radius: 70px;
+      box-shadow: 0px 0px 10px 10px rgba(0, 0, 0, 0.2);
 
     }
 }
