@@ -4,9 +4,7 @@ declare(strict_types=1);
 
 require __DIR__.'/../autoload.php';
 
-// In this file we login users.
-
-
+// login user.
 if (isset($_POST['email'], $_POST['password'])){
   $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
   $password = ($_POST['password']);
@@ -30,4 +28,3 @@ if (isset($_POST['email'], $_POST['password'])){
       }
     redirect('/login.php');
 }
-// echo $_SESSION['user']['name'];
