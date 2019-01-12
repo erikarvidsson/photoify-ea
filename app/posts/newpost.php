@@ -1,5 +1,4 @@
 <?php
-require __DIR__.'/../autoload.php';
 
     // $pdo = new PDO('sqlite:photoify.db');
 
@@ -46,7 +45,5 @@ if (isset($_FILES['img'])){
       move_uploaded_file($oldpath, $newpath);
 
       redirect('/../../posts.php');
-      }else{
-        echo "Sorry, file already exists.";
-      };
+      }
   ?>
