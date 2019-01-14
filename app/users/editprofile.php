@@ -1,5 +1,5 @@
 <?php
-require __DIR__.'/../autoload.php';
+
     if (isset($_SESSION['user']['email'])){
       $email = $_SESSION['user']['email'];
 
