@@ -2,8 +2,8 @@
 
  ?>
 
-<div>
-  <h1 class="banner" id="navbar">Photoify</h1>
+<div class="banner" id="navbar">
+  <h1 class="banner2">Photoify</h1>
 
 
 <div class="dropdown">
