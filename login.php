@@ -20,7 +20,9 @@ require __DIR__.'/views/header.php';
 
         <button type="submit" class="btn btn-primary">Login</button>
     </form>
+  <a class="login-a" href="newprofile.php">Create a new account</a>
 </article>
+
 
 <?php
 require __DIR__.'/views/footer.php';
