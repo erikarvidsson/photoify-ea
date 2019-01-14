@@ -1,5 +1,4 @@
 <?php
-require __DIR__.'/../autoload.php';
 
     // $pdo = new PDO('sqlite:photoify.db');
 
