@@ -1,5 +1,7 @@
 // Manage likes on posts
 const [...likeForms] = document.querySelectorAll('.my-like-form');
+const [...hearts] = document.querySelectorAll('.like-btn');
+
 const select = document.querySelectorAll('.like-btn')
 
 // Code do not edit
@@ -10,6 +12,8 @@ likeForms.forEach((likeForm) => {
         event.preventDefault();
 
         const formData = new FormData(likeForm);
+        const input = document.querySelector('.my-like-form').children[1];
+
 
         if (likeForm[1].value === 'liked') {
             likeForm[1].value = 'disliked';
@@ -17,15 +21,32 @@ likeForms.forEach((likeForm) => {
             likeForm[1].value = 'liked';
         }
 
+
         fetch('app/users/likes.php', {
             method: 'POST',
             body: formData
           })
           .then(response => response.json())
-          .then(json => likeForm.nextElementSibling.nextSibling.previousSibling.textContent = json.likes);
-          console.dir(likeForm.nextElementSibling.nextSibling);
+          .then(json => likeForm.nextElementSibling.children[0].textContent = `Likes: ${json.likes}`) ;
+
+          // (input.value === 'liked') ? heart2.classList.add('liked') : heart2.classList.remove('liked')
+        // fetch('app/users/likes.php', {
+        //     method: 'POST',
+        //     body: formData
+        //   })
+        //   .then(response => response.json())
+          // .then(json => likeBtn.heart = heart.likes);
+          // // .then(json => {
+          // //   const likeButton = likeForm.querySelector('button')
+          // //   likeButton.classList.toggle('liked')
+        //   // // })
+
+                let btnId = likeForm.dataset.id;
+                console.log(btnId)
+                document.querySelector(`.like-btn-${btnId}`).classList.toggle('liked');
     })
 });
+
 
 
 // sticky banner
@@ -39,20 +60,6 @@ window.onscroll = function() {
   }
   prevScrollpos = currentScrollPos;
 }
-
-
-// show img befor uppload
- document.getElementById("imgs").onchange = function () {
-    var reader = new FileReader();
-
-    reader.onload = function (e) {
-        // get loaded data and render thumbnail.
-        document.getElementById("image").src = e.target.result;
-    };
-
-    // read the image file as a data URL.
-    reader.readAsDataURL(this.files[0]);
-};
 
 
 /* When the user clicks on the button,
