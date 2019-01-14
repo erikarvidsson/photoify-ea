@@ -23,23 +23,35 @@
       width: 100%; /* Full width */
       transition: top 0.5s; /* Transition effect when sliding down (and up) */
     }
-    h1.banner{
+    h1.banner2{
       font-family: SignPainter;
       font-size: 120px;
       color: #ff7a7e;
+      margin: 34px;
     }
 
     h4{
-      width: 100vw;
+      width: 50vw;
       font-size: 48px;
       padding-left: 28px;
       font-family: Courier;
       color: rgba(0, 0, 0, 0.5);
     }
     .postname{
+      width: 40vw;
       border-top: 0.5px solid #ff7a7e;;
-      padding-top: 28px;
+      padding-top: 24px;
       margin-bottom: 28px;
+    }
+    .postdate{
+      width: 60vw;
+      border-top: 0.5px solid #ff7a7e;;
+      padding-top: 24px;
+      margin-bottom: 28px;
+    }
+    .post-user{
+      display: flex;
+        width: 100vw;
     }
     p{
       width: 100vw;
@@ -47,6 +59,12 @@
       font-family: Courier;
       padding-left: 28px;
       color: rgba(0, 0, 0, 0.5);
+    }
+    span {
+      white-space: pre;
+    }
+    .like-counter {
+      white-space:nowrap;
     }
 
     a{
@@ -114,32 +132,24 @@
       width: 100px;
       height: 100px;
       margin-left: 28px;
-      background-image: url("../assets/icons/heart-outline.svg");
+      background-image: url("../assets/icons/heart-red.svg");
       display: inline-grid;
       background-color: white;
       border: none;
       grid-column-start: 1;
       grid-column-end: 2;
+      border:0px;
+      outline:0px;
     }
 
-    .like-btn:checked{
+    .liked{
       width: 100px;
       height: 100px;
       background-repeat: no-repeat;
       background-color: white;
       border: none;
       background-size: cover;
-      background-image: url("../assets/icons/heart-red.svg");
-    }
-
-    .red-heart-btn{
-      width: 100px;
-      height: 100px;
-      background-repeat: no-repeat;
-      background-color: white;
-      border: none;
-      background-size: cover;
-      background-image: url("../assets/icons/heart-red.svg");
+      background-image: url("../assets/icons/heart-outline.svg");
     }
 
 
@@ -200,6 +210,12 @@
       box-shadow: 0px 0px 10px 10px rgba(0, 0, 0, 0.2);
       padding-left: 50px;
       color: rgba(0, 0, 0, 0.5);
+    }
+    .login-a{
+      position: absolute;;
+      margin-left: auto;
+      margin-right: auto;
+      color: black;
     }
 
     /* newpost styling */
@@ -274,11 +290,11 @@
   .profile-top{
     width: 100vw;
     display: grid;
+    margin-top: 14vh;
     justify-items: center;
     align-items: center;
     grid-row-start: 1;
-    grid-row-end: 2;
-    margin-top: -11vh;
+    grid-row-end: 2
 
   }
   .profile-img{
@@ -290,28 +306,126 @@
     text-align: center;
   }
   .profile-form-box{
-    margin-top: -20vh;
     width: 100%;
     display: grid;
+    align-items: stretch;
     justify-items: center;
     align-items: center;
-    grid-row-start: 2;
-    grid-row-end: 3;
+    padding-bottom: 200px;
+  }
+
+  .profile-form-box form{
+    font-size: 28px;
+    width: 70vw;
+    padding: 50px;
+    border-color: rgba(0, 0, 0, 0.0);
+    background-color: white;
+    margin-bottom: 3vh;
+    border-radius: 70px;
+    box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.1);
+    display: table-cell;
+    vertical-align: middle;
+    font-family: Courier;
+  }
+  .profile-form-box form input,textarea{
+    border-color: rgba(0, 0, 0, 0.2);
+    background-color: white;
+    border-radius: 8px;
+    padding-left: 10px;
+    width: 100%;
+    font-family: Courier;
+  }
+  .profile-form-box form button{
+    box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.1);
+    border-color: rgba(0, 0, 0, 0.2);
+    background-color: white;
+    border-radius: 8px;
+    border-color: rgba(0, 0, 0, 0.2);
+    border
+  }
+
+  /* user profile style */
+  .user-container{
+    display: grid;
+    grid-template-columns: 32vw 32vw 32vw;
+    grid-template-rows: 30vw;
+    grid-column-gap: 2vw;
+    grid-row-gap: 2vw;
+    padding-bottom: 200px;
+
 
   }
+  .user-img-container{
+    margin-top: 13vh;
+    justify-content: center;
+    display: flex;
+    width: 100vw;
+    height: 35vh;
+  }
+  .user-img-container h3{
+    position: absolute;
+    margin-top: 24vh;
+    font-size: 48px;
+    justify-content: center;
+    font-family: Courier;
+    color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    width: 100vw;
+  }
+  .user-img-container h4{
+    position: absolute;
+    margin-top: 28vh;
+    font-size: 38px;
+    font-family: Courier;
+    color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    width: 100vw;
+  }
+  .user-img{
+    height: 30vw;
+    overflow: hidden;
+    object-fit: fill;
+    display: block;
+  }
+
+  .user-name{
+    width: 100vw;
+    text-align: center;
+  }
+
+  .user-img {
+    position: relative;
+    overflow: hidden;
+}
+.user-img img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  height: 100%;
+  width: auto;
+  -webkit-transform: translate(-50%,-50%);
+      -ms-transform: translate(-50%,-50%);
+          transform: translate(-50%,-50%);
+}
+.user-img img.portrait {
+  width: 100%;
+  height: auto;
+}
 
     /* Dropdown Button */
 .dropbtn {
-  background-image:url("../assets/icons/comment.svg");
+  background-image:url("../assets/icons/settings.svg");
   background-color: white;
   color: white;
   padding: 16px;
   font-size: 16px;
   width: 150px;
-  height: 100px;
+  height: 74px;
   border: none;
   cursor: pointer;
   position: relative;
+  border:0px;
+  outline:0px;
 }
 
 /* Dropdown button on hover & focus */
@@ -320,12 +434,11 @@
 
 /* The container <div> - needed to position the dropdown content */
 .dropdown {
-  position: relative;
+  position: absolute;
   display: inline-block;
-  top: -16px;
-  right: -80vw;
-  margin-top: 70px;
+  margin-top: 0px;
   z-index: 2;
+  right: 30px;
 }
 
 /* Dropdown Content (Hidden by Default) */
@@ -353,4 +466,10 @@
 
 /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
 .show {display:block;}
+}
+
+@media (min-width:900px)  {
+  body{
+    max-width: 500px;
+  }
 }
