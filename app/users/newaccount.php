@@ -94,7 +94,7 @@ if (isset($_POST['first-name'], $_POST['last-name'], $_POST['user-name'], $_POST
     <title></title>
   </head>
   <body>
-    <form class="" action="newaccount.php" method="post" enctype="multipart/form-data">
+    <form class="" action="newprofile.php" method="post" enctype="multipart/form-data">
       <input name="first-name" placeholder="First Name"></input>
       <input name="last-name" placeholder="Last Name"></input>
       <input name="user-name" placeholder="User Name"></input>
