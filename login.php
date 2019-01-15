@@ -18,7 +18,7 @@ require __DIR__.'/views/header.php';
             <input class="form-control" type="password" name="password" placeholder="Password" required>
         </div><!-- /form-group -->
 
-        <button type="submit" class="btn btn-primary">Login</button>
+        <button type="submit" class="btn btn-primary">|></button>
     </form>
   <a class="login-a" href="newprofile.php">Create a new account</a>
 </article>
