@@ -1,5 +1,9 @@
 <?php
 
+    if(!if_user_loggedin()){
+      redirect('/');
+    }
+
     if (isset($_SESSION['user']['email'])){
       $email = $_SESSION['user']['email'];
 
@@ -23,7 +27,7 @@ if (isset($_POST['first-name'], $_POST['last-name'], $_POST['user-name'], $_POST
       $lastname = filter_var($_POST['last-name'], FILTER_SANITIZE_STRING);
       $username = filter_var($_POST['user-name'], FILTER_SANITIZE_STRING);
       $email = filter_var($_POST['email'], FILTER_SANITIZE_STRING);
-      $usertext = filter_var($_POST['user_text'], FILTER_SANITIZE_STRING);
+      $usertext = nl2br(filter_var($_POST['user_text'], FILTER_SANITIZE_STRING));
       $id = $_SESSION['user']['id'];
 
 

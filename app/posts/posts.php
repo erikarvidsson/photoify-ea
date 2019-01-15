@@ -12,6 +12,9 @@
 // $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
 
 // get post username by user id
+if(!if_user_loggedin()){
+      redirect('/');
+    }
 $statement = $pdo->prepare('SELECT username, user_id, post_text, img, p_id, post_date FROM `users` AS u
   INNER JOIN `posts` AS p ON p.user_id = u.id');
   if(!$statement){
@@ -87,7 +90,7 @@ $statement = $pdo->prepare('SELECT username, user_id, post_text, img, p_id, post
         </form>
         <p class="like-counter"> <span>Likes: <?php echo count($likes).' ';?></span></p>
 
-        <a class="comment-btn" href=""><img ></a>
+        <a class="comment-btn" href="comments.php?post_id=<?= $postId ?>"><img ></a>
       </div>
 
       <p><?= $postText ;?></p>

@@ -1,5 +1,8 @@
 <?php
 
+if(!if_user_loggedin()){
+  redirect('/');
+}
     // $pdo = new PDO('sqlite:photoify.db');
 
 if (isset($_FILES['img'])){

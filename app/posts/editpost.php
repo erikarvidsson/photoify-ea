@@ -1,12 +1,18 @@
 <?php
+
+if(!if_user_loggedin()){
+  redirect('/');
+}
+
+
     if (isset($_SESSION['user']['id'])){
 
       if(isset($_GET['post_id'])){
         $post_id = $_GET['post_id'];
       }
-      // else{
-      //   redirect('/posts.php');
-      // }
+      $userId = (int) $_SESSION['user']['id'];
+
+
 
       $statement = $pdo->prepare('SELECT * FROM posts WHERE p_id = :user_id');
       // $statement = $pdo->prepare('SELECT * FROM users');
@@ -19,6 +25,9 @@
 
       $post = $statement->fetch(PDO::FETCH_ASSOC);
 
+      if(!is_user_owner((int) $post['user_id'], $userId)){
+        redirect('/posts.php');
+      }
 
 if (isset($_POST['post-text'])){
 
@@ -27,7 +36,7 @@ if (isset($_POST['post-text'])){
       if(!$statement){
         die(var_dump($pdo->errorInfo()));
       }
-      $statement->bindParam(':post_text', $_POST['post-text'], PDO::PARAM_STR);
+      $statement->bindParam(':post_text', nl2br($_POST['post-text']), PDO::PARAM_STR);
       $statement->bindParam(':post_id', $post_id, PDO::PARAM_STR);
       $statement->execute();
 

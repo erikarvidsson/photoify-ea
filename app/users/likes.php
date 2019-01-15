@@ -1,6 +1,10 @@
 <?php
 require __DIR__.'/../autoload.php';
 
+if(!if_user_loggedin()){
+  redirect('/');
+}
+
 if (isset($_POST['post_id'], $_POST['action'])) {
     $action = $_POST['action'];
     $postId = $_POST['post_id'];
