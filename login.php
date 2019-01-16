@@ -10,7 +10,7 @@ require __DIR__.'/views/header.php';
     <form class="loggin-form" action="app/users/login.php" method="post">
         <div class="form-group">
             <label for="email"></label>
-            <input class="form-control" type="email" name="email" placeholder="francis@darjeeling.com" required>
+            <input class="form-control" type="email" name="email" placeholder="francis@darjeeling.com" autocomplete="off" required>
         </div><!-- /form-group -->
 
         <div class="form-group">
