@@ -6,7 +6,7 @@ require __DIR__.'/app/posts/newpost.php';
 <div class="newpost-container">
 <img id="image" />
 <form  class="newpost-form" action="/newpost.php" method="post" placeholder="Chose image" enctype="multipart/form-data">
-  <input class="nwepost-hidden" type="file" name="img" id="imgs">
+  <input class="nwepost-hidden" type="file" name="img" id="imgs" accept="image/*">
   <label class="choseimg-form" for="imgs">Select file</label>
   <textarea name="post_text" placeholder="Write something..."></textarea>
   <button type="submit" name="button"> Post</button>
