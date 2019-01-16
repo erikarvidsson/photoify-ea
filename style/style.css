@@ -570,10 +570,10 @@
 }
 .newprofile-container form input{
   border-color: rgba(0, 0, 0, 0.2);
-  font-size: 30px;
+  font-size: 48px;
   padding: 5px;
   background-color: white;
-  border-radius: 16px;
+  border-radius: 26px;
   padding-left: 10px;
   margin-top: 30px;
   width: 90%;
@@ -596,7 +596,7 @@
 .newprofile-a{
   text-align: center;
   width: 100vw;
-  margin-top: 16vh;
+  margin-top: 9vh;
 }
 .newprofile-a a {
   width: 100vw;
