@@ -39,7 +39,7 @@ require __DIR__.'/app/users/editprofile.php';
 
   <!-- change profile picture -->
   <form class="profile-form" action="editprofile.php" method="post" enctype="multipart/form-data">
-    <input type="file" name="profile_img"></input>
+    <input type="file" name="profile_img" required></input>
     <br>
     <button type="submit" name="button"> Change profile picture</button>
   </form>
@@ -49,11 +49,11 @@ require __DIR__.'/app/users/editprofile.php';
     <label for="old-password">Change password:</label>
     <br>
 
-    Old password:<input class="inputSettings" type="password" name="old-password" required>
+    Old password:<input class="inputSettings" type="password" name="old-password" autocomplete="off" required>
 
-    New password:<input class="inputSettings" type="password" name="new-password" required>
+    New password:<input class="inputSettings" type="password" name="new-password" autocomplete="off" required>
 
-    Confirm password:<input class="inputSettings" type="password" name="confirm-password" required>
+    Confirm password:<input class="inputSettings" type="password" name="confirm-password" autocomplete="off" required>
 
     <button class="button" type="submit">Change password</button>
 
