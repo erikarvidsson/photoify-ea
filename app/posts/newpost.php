@@ -14,7 +14,7 @@ if (isset($_FILES['img'])){
       $img = $_FILES['img'];
       $imgname = $img['name'];
       $imgsave = $id.'_'.$date.$imgname;
-      $usertext = $_POST['post_text'];
+      $usertext = trim(filter_var($_POST['post_text'], FILTER_SANITIZE_STRING));
 
 
       if (!is_dir(__DIR__."/..img//post_img/")) {
