@@ -488,11 +488,29 @@
 .comments-container{
   margin-top: 200px;
 }
+.comments-container img{
+  margin-bottom: 40px;
+}
 .comments-container h3{
   font-size: 38px;
-  margin-left: 24px;
+  margin-left: 48px;
+  margin-top: 16px;
+  margin-bottom: 16px;
   font-family: Courier;
   color: rgba(0, 0, 0, 0.5);
+}
+.comments-container h4{
+  width: 90%;
+  font-size: 30px;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  font-family: Courier;
+  color: rgba(0, 0, 0, 1);
+}
+.comment-date{
+  text-align: right;
+  width: 20vw;
+  margin-left: 30vw;
 }
     /* Dropdown Button */
 .dropbtn {
