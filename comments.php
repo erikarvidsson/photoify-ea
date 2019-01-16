@@ -37,10 +37,12 @@ $statement = $pdo->prepare('SELECT img FROM posts WHERE p_id = :id');
     <h3> <?= $comment['comment'] ?></h3>
   <?php endif ;?>
   <?php endforeach ;?>
-  <form class="" action="/app/posts/comment.php?post_id=<?= $_GET['post_id'] ?>" method="post" enctype="multipart/form-data">
-    <input name="comment" placeholder="text here"></input>
-    <button type="submit" name="button"> Add comment  </button>
-  </form>
+  <div class="comments-form">
+    <form class="" action="/app/posts/comment.php?post_id=<?= $_GET['post_id'] ?>" method="post" enctype="multipart/form-data">
+      <input name="comment" placeholder="text here"></input>
+      <button type="submit" name="button"> Add comment  </button>
+    </form>
+  <div>
 <div>
 
   <?php
