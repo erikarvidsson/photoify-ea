@@ -1,5 +1,5 @@
 #Photoify
-<img src="https://media.giphy.com/media/t32aaMe14FANW/giphy.gif" width="100%">
+<img src="https://media.giphy.com/media/3otOKGuNagWbws4VQA/giphy.gif" width="100%">
 
 Photoify
 
