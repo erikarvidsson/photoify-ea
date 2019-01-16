@@ -18,7 +18,7 @@ if (!function_exists('redirect')) {
 }
 
 // select all imgs posted by usere
-function selectUserPost($userId, object $pdo){
+function selectUserPost(int $userId, object $pdo){
   $statement = $pdo->prepare('SELECT * FROM posts WHERE user_id = :user_id');
   // $statement = $pdo->prepare('SELECT * FROM users');
   if(!$statement){
@@ -36,7 +36,7 @@ return $imgs;
 
 
 
-function selectUserProfile($userId, object $pdo){
+function selectUserProfile(int $userId, object $pdo){
   $statement = $pdo->prepare('SELECT * FROM users WHERE id = :user_id');
   // $statement = $pdo->prepare('SELECT * FROM users');
   if(!$statement){
@@ -49,4 +49,12 @@ function selectUserProfile($userId, object $pdo){
   $profileInfo = $statement->fetch(PDO::FETCH_ASSOC);
 
 return $profileInfo;
+}
+
+function if_user_loggedin(){
+  return isset($_SESSION['user']);
+}
+
+function is_user_owner(int $a, int $b) : bool{
+  return $a === $b;
 }
