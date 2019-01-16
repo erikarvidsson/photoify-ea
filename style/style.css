@@ -3,10 +3,12 @@
 @media (min-width:480px)  {
 
     body{
+      display: flex;
       overflow-x: hidden;
       max-width: 100vw;
-
     }
+  .body-container{
+  }
     .banner{
       position:fixed;
       background-color: white;
@@ -61,7 +63,6 @@
       color: rgba(0, 0, 0, 0.5);
     }
     span {
-      white-space: pre;
     }
     .like-counter {
       white-space:nowrap;
@@ -125,7 +126,6 @@
       display: grid;
     }
     .like-bar p{
-      padding: 0;
       margin: 0;
     }
     .like-btn{
@@ -160,7 +160,8 @@
       white-space: nowrap;
       margin: 0;
       display: inline-grid;
-      justify-self: center;
+      margin-left: auto;
+      margin-right: auto;
       align-items: center;
       grid-column-start: 2;
       grid-column-end: 3;
@@ -189,7 +190,7 @@
     }
     .loggin-logo{
       width: 100vw;
-      margin-top: 30vh;
+      margin-top: 23vh;
       font-family: SignPainter;
       font-size: 220px;
       color: #ff7a7e;
@@ -216,7 +217,7 @@
       background-color: white;
       width: 700px;
       height: 120px;
-      font-size: 48px;
+      font-size: 40px;
       margin-bottom: 100px;
       border-radius: 70px;
       box-shadow: 0px 0px 10px 10px rgba(0, 0, 0, 0.2);
@@ -512,6 +513,99 @@
   width: 20vw;
   margin-left: 30vw;
 }
+.comments-form{
+  margin-bottom: 200px;
+}
+.comments-form form{
+  text-align: center;
+}
+.comments-form button{
+  font-size: 48px;
+  width: 70%;
+  margin-top: 60px;
+  padding: 10px;
+  box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.1);
+  border-color: rgba(0, 0, 0, 0.2);
+  color: rgba(0, 0, 0, 0.5);
+  background-color: white;
+  border-radius: 40px;
+  border-color: rgba(0, 0, 0, 0.2);
+  margin-left:auto;
+  margin-right:auto;
+  text-align: center;
+}
+.comments-form  input{
+  font-size: 48px;
+  width: 90%;
+  margin-top: 40px;
+  border-color: rgba(0, 0, 0, 0.2);
+  color: rgba(0, 0, 0, 0.5);
+  border-radius: 30px;
+  vertical-align: top;
+  padding: 10px;
+}
+
+/* new account style */
+.newprofile-container {
+  margin-top: 36vh;
+  width: 100%;
+  margin-bottom: 0px;
+}
+/* .body-container .banner h1 {
+  margin-top: 200px;
+  font-size: 200px;
+} */
+.newprofile-container form{
+  font-size: 38px;
+  margin-left: 0%;
+  width: 100%;
+  padding: 50px;
+  border-color: rgba(0, 0, 0, 0.0);
+  color: rgba(0, 0, 0, 0.5);
+  background-color: white;
+  margin-bottom: -6vh;
+  border-radius: 50px;
+  font-family: Courier;
+  text-align: center;
+}
+.newprofile-container form input{
+  border-color: rgba(0, 0, 0, 0.2);
+  font-size: 30px;
+  padding: 5px;
+  background-color: white;
+  border-radius: 16px;
+  padding-left: 10px;
+  margin-top: 30px;
+  width: 90%;
+  font-family: Courier;
+}
+.newprofile-container form button{
+  width: 70%;
+  margin-top: 160px;
+  padding: 10px;
+  box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.1);
+  border-color: rgba(0, 0, 0, 0.2);
+  color: rgba(0, 0, 0, 0.5);
+  background-color: white;
+  border-radius: 35px;
+  border-color: rgba(0, 0, 0, 0.2);
+  margin-left:auto;
+  margin-right:auto;
+  text-align: center;
+}
+.newprofile-a{
+  text-align: center;
+  width: 100vw;
+  margin-top: 16vh;
+}
+.newprofile-a a {
+  width: 100vw;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  color: black;
+  text-decoration: underline;
+}
     /* Dropdown Button */
 .dropbtn {
   background-image:url("../assets/icons/settings.svg");
@@ -566,4 +660,314 @@
 
 /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
 .show {display:block;}
+
+}
+
+@media (min-width:1000px)  {
+  body{
+
+  }
+.body-container{
+  width: 40vw;
+  margin-left: 30vw;
+  margin-right: 30vw;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.body-container p{
+  font-size: 38px;
+  width: 100%;
+}
+img {
+  width: 100%;
+  object-fit: cover;
+}
+a{
+  width: 100%
+}
+.post-user{
+  width: 100%;
+}
+.post-user h4{
+width: 100%;
+font-size: 28px;
+padding-top: 160px;
+}
+.like-bar{
+  width: 100%;
+}
+.like-bar p
+{
+  padding-left: 23%;
+  font-size: 28px;
+  width: 100%;
+}
+.liked{
+  width: 50px;
+  height: 50px;
+}
+.like-btn{
+  width: 50px;
+  height: 50px;
+}
+.like-bar p {
+  align-items: normal;
+  padding-top: 10px;
+}
+
+/* comment page style desktop  */
+
+.comments-container h4{
+  font-size: 20px;
+}
+.comments-container span{
+  display: none;
+}
+.comment-btn{
+  height: 50px;
+}
+
+
+ /* desktop banner style */
+.banner{
+  width: 40%;
+  height: 170px;
+  z-index: 2;
+}
+.banner button{
+  height: 44px;
+}
+.banner h1{
+  font-size: 100px;
+}
+#myDropdown{
+  right: 50px;
+}
+.dropbtn{
+    width: 100px;
+}
+.navbar{
+  width: 40vw;
+  height: 100px;
+}
+.navbar a{
+  font-size: 26px;
+  text-align: center;
+}
+.newpost-container{
+  width: 100%;
+}
+.newpost-container #image{
+  margin-top: 170px;
+  width: 100%;
+  max-height: 50vh;
+  min-height: 50vh;
+}
+.newpost-container form{
+  width: 80%;
+  margin-top: 2vh;
+}
+.newpost-container form textarea{
+  width: 100%;
+}
+.newpost-container form button{
+  width: 100%;
+}
+
+.newpost-form textarea{
+  font-size: 24px;
+}
+.newpost-form label{
+  font-size: 24px;
+}
+.newpost-form button{
+  font-size: 24px;
+  height: 50px;
+}
+
+.user-container {
+    display: grid;
+    grid-template-columns: 32% 32% 32%;
+    grid-template-rows: 25%;
+    grid-column-gap: 2%;
+    grid-row-gap: 2%;
+    padding-bottom: 200px;
+    padding-top: 50px;
+}
+.user-img img.portrait {
+    width: 100%;
+    height: 100%;
+  }
+.user-img-container{
+  width: 100%;
+  margin-top: 18vh;
+  display: inline-flex;
+}
+.user-img-container h3{
+  width: 100%;
+  margin-top: 28vh;
+  font-size: 38px;
+}
+.user-img-container h4{
+  width: 100%;
+  margin-top: 34vh;
+  padding-left: 0;
+  font-size: 30px;
+  text-align: center;
+  display: block;
+}
+  .profile-img {
+    border-radius: 50%;
+    width: 260px;
+    height: 260px;
+}
+
+/* update profile desktop style */
+.profile-site{
+  width: 100%;
+}
+.profile-top{
+  width: 100%;
+  margin-top: 20vh;
+}
+.profile-form-box{
+  width: 100%;
+}
+.profile-form-box form{
+  width: 100%;
+  font-size: 28px;
+}
+/* login desktop style  */
+.loggin-page{
+  width: 100%;
+}
+.loggin-page h1{
+  width: 100%;
+  margin: 0;
+  margin-top: 10vh;
+  margin-bottom: 10vh;
+}
+.loggin-page form{
+  width: 100%;
+  padding: 0;
+}
+.loggin-form .form-control{
+  background-color: white;
+  width: 510px;
+  height: 50px;
+  font-size: 20px;
+  margin-bottom: 100px;
+  border-radius: 70px;
+}
+.loggin-form button {
+    width: 100px;
+    height: 100px;
+    margin-top: -100px;
+    margin-bottom: 60px;
+  }
+.login-a{
+  font-size: 28px;
+}
+/* create account desktop style */
+.newprofile-container {
+  margin-top: 160px;
+  width: 100%;
+  margin-bottom: 0px;
+}
+.newprofile-container form{
+  font-size: 38px;
+  margin-top: 22vh;
+  margin-left: 10%;
+  width: 80%;
+  padding: 50px;
+  border-color: rgba(0, 0, 0, 0.0);
+  color: rgba(0, 0, 0, 0.5);
+  background-color: white;
+  margin-bottom: -6vh;
+  border-radius: 50px;
+  font-family: Courier;
+  text-align: center;
+}
+.newprofile-container form input{
+  border-color: rgba(0, 0, 0, 0.2);
+  font-size: 30px;
+  padding: 5px;
+  background-color: white;
+  border-radius: 16px;
+  padding-left: 10px;
+  margin-top: 30px;
+  width: 100%;
+  font-family: Courier;
+}
+.newprofile-container form button{
+  width: 70%;
+  margin-top: 60px;
+  padding: 10px;
+  box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.1);
+  border-color: rgba(0, 0, 0, 0.2);
+  color: rgba(0, 0, 0, 0.5);
+  background-color: white;
+  border-radius: 35px;
+  border-color: rgba(0, 0, 0, 0.2);
+  margin-left:auto;
+  margin-right:auto;
+  text-align: center;
+}
+/* .body-container .banner h1 {
+  margin-top: 20px;
+  font-size: 200px;
+} */
+.newprofile-a {
+    text-align: center;
+    width: 100%;
+    margin-top: 4vh;
+}
+.newprofile-a a{
+    font-size: 38px;
+}
+/* eddit upplod discription */
+.editprofile-container{
+  width: 100%
+}
+.editprofile-container form{
+  font-size: 30px;
+  margin-top: 0vh;
+  margin-left: 10%;
+  width: 80%;
+  padding: 50px;
+  border-color: rgba(0, 0, 0, 0.0);
+  color: rgba(0, 0, 0, 0.5);
+  background-color: white;
+  margin-bottom: -6vh;
+  border-radius: 50px;
+  font-family: Courier;
+  text-align: center;
+}
+.editprofile-container textarea{
+  width: 100%;
+  margin-top: 60px;
+  padding: 10px;
+  box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.1);
+  border-color: rgba(0, 0, 0, 0.2);
+  color: rgba(0, 0, 0, 0.5);
+  background-color: white;
+  border-radius: 20px;
+  border-color: rgba(0, 0, 0, 0.2);
+  margin-left:auto;
+  margin-right:auto;
+}
+.editprofile-container button{
+  width: 90%;
+  margin-top: 60px;
+  padding: 12px;
+  box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.1);
+  border-color: rgba(0, 0, 0, 0.2);
+  color: rgba(0, 0, 0, 0.5);
+  background-color: white;
+  border-radius: 35px;
+  border-color: rgba(0, 0, 0, 0.2);
+  margin-left:auto;
+  margin-right:auto;
+  text-align: center;
+}
 }
