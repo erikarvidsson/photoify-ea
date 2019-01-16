@@ -1,5 +1,6 @@
 <?php
 require __DIR__.'/../autoload.php';
+
 if(!if_user_loggedin()){
   redirect('/');
 }
@@ -7,8 +8,8 @@ if(!if_user_loggedin()){
 if (isset($_POST['comment'])){
       $id = $_SESSION['user']['id'];
       $date = date("Y-m-d, g:i a");
-      $comment = $_POST['comment'];
-      $postId = $_GET['post_id'];
+      $comment = trim(filter_var($_POST['comment'], FILTER_SANITIZE_STRING));
+      $postId = filter_var($_GET['post_id'], FILTER_SANITIZE_NUMBER_INT);
 
       // echo $postId.'<br>';
       // echo $date.'<br>';
