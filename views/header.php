@@ -11,3 +11,4 @@ require __DIR__.'/../app/autoload.php';
     <title></title>
   </head>
   <body>
+    <div class="body-container">
