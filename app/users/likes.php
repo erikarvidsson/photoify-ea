@@ -6,8 +6,8 @@ if(!if_user_loggedin()){
 }
 
 if (isset($_POST['post_id'], $_POST['action'])) {
-    $action = $_POST['action'];
-    $postId = $_POST['post_id'];
+    $action = trim(filter_var($_POST['action'], FILTER_SANITIZE_STRING));
+    $postId = filter_var($_POST['post_id'], FILTER_SANITIZE_NUMBER_INT);
     $userId = $_SESSION['user']['id'];
 
     if ($action === 'disliked') {
