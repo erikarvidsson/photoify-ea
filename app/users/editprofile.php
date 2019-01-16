@@ -148,6 +148,11 @@ if (isset($_POST['first-name'], $_POST['last-name'], $_POST['user-name'], $_POST
       $statement->bindParam(':user_id', $id, PDO::PARAM_INT);
       $statement->execute();
 
+      $statement = $pdo->prepare('DELETE FROM comments WHERE user_id = :user_id');
+
+      $statement->bindParam(':user_id', $id, PDO::PARAM_INT);
+      $statement->execute();
+
       session_unset();
       session_destroy();
       redirect('/');
