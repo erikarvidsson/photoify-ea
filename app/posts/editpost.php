@@ -36,7 +36,7 @@ if (isset($_POST['post-text'])){
       if(!$statement){
         die(var_dump($pdo->errorInfo()));
       }
-      $statement->bindParam(':post_text', nl2br($_POST['post-text']), PDO::PARAM_STR);
+      $statement->bindParam(':post_text', nl2br(filter_var($_POST['post-text']), FILTER_SANITIZE_STRING), PDO::PARAM_STR);
       $statement->bindParam(':post_id', $post_id, PDO::PARAM_STR);
       $statement->execute();
 
