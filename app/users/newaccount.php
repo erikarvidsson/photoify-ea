@@ -85,24 +85,3 @@ if (isset($_POST['first-name'], $_POST['last-name'], $_POST['user-name'], $_POST
 
 
   ?>
-
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="style/sanitize.css">
-    <title></title>
-  </head>
-  <body>
-    <form class="" action="newprofile.php" method="post" enctype="multipart/form-data">
-      <input name="first-name" placeholder="First Name"></input>
-      <input name="last-name" placeholder="Last Name"></input>
-      <input name="user-name" placeholder="User Name"></input>
-      <input name="email" placeholder="email"></input>
-      <input name="password" placeholder="Password"></input>
-      <input name="user_text" placeholder="About"></input>
-      <button type="submit" name="button"> knapp</button>
-    </form>
-
-  </body>
-</html>
