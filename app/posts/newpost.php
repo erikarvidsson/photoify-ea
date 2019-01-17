@@ -3,8 +3,8 @@
 if(!if_user_loggedin()){
   redirect('/');
 }
-    // $pdo = new PDO('sqlite:photoify.db');
 
+// checks if img is added and adds new post
 if (isset($_FILES['img'])){
       $usertext = filter_var($_POST['post_text'], FILTER_SANITIZE_STRING);
       $date = date("Y-m-d, H:i");

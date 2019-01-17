@@ -1,16 +1,4 @@
 <?php
-//
-//
-// // get all post from the post database
-// $statement = $pdo->prepare('SELECT * FROM posts');
-// if(!$statement){
-//   die(var_dump($pdo->errorInfo()));
-// }
-//
-// $statement->execute();
-//
-// $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
-
 // get post username by user id
 if(!if_user_loggedin()){
   redirect('/');
@@ -57,7 +45,6 @@ $statement = $pdo->prepare('SELECT username, user_id, post_text, img, p_id, post
       $statement->bindParam(':post_id', $postId, PDO::PARAM_INT);
       $statement->bindParam(':user_id', $_SESSION['user']['id'], PDO::PARAM_INT);
       $statement->execute();
-
 
       $liked = $statement->fetch(PDO::FETCH_ASSOC);
 

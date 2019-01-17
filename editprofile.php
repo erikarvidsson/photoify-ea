@@ -62,7 +62,7 @@ require __DIR__.'/app/users/editprofile.php';
   <!-- delete account -->
   <form class="profile-form" action="editprofile.php" method="post" enctype="multipart/form-data">
     <label for="password">Password:</label>
-    <input name="password"  type="password" value="FakePSW" required></input>
+    <input name="password"  type="password" required></input>
     <button type="submit" name="button"> Delet account</button>
   </form>
 

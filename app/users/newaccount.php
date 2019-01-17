@@ -1,7 +1,5 @@
 <?php
 
-    // $pdo = new PDO('sqlite:photoify.db');
-
 if (isset($_POST['first-name'], $_POST['last-name'], $_POST['user-name'], $_POST['email'], $_POST['password'],
     $_POST['user_text'])){
 
@@ -12,8 +10,6 @@ if (isset($_POST['first-name'], $_POST['last-name'], $_POST['user-name'], $_POST
       $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
       $usertext = filter_var($_POST['user_text'], FILTER_SANITIZE_STRING);
       $date = date("Y-m-d, g:i a");
-
-
 
       $statement = $pdo->prepare('INSERT INTO users(last_name, first_name, email, username, password, signup_date, user_text)
       VALUES(:last_name, :first_name, :email, :username, :password, :signup_date, :user_text )');
@@ -41,47 +37,5 @@ if (isset($_POST['first-name'], $_POST['last-name'], $_POST['user-name'], $_POST
 
       redirect('/');
 
-      };
-
-
-
-
-      // $statement = $pdo->prepare('SELECT * FROM users WHERE email = :email');
-      // $statement->bindParam(':email', $email, PDO::PARAM_STR);
-      // $statement->execute();
-      //
-      //
-      // $users = $statement->fetch(PDO::FETCH_ASSOC);
-      //
-      // print_r($users);
-      //
-      // $emailDb = $users['email'];
-      // $passwordDb = $users['password'];
-      //
-      //     if($emailDb === $email && password_verify($password, $passwordDb)){
-      //       echo 'yes :)';
-      //
-
-      // }
-      //
-      //     $id = $users['id'];
-      //     $folder = $id;
-      //
-      //     if (!is_dir(__DIR__."/../post_img/$folder/profile_img")) {
-      //       mkdir(__DIR__."/../post_img/$folder/profile_img");
-      //     };
-      //
-      //     $path = __DIR__.'/../post_img/'.$folder.'/profile_img';
-      //
-      //     print_r($_FILES);
-      //
-      //     // if (file_exists($path.$_FILES['name'])) {
-      //     //   die;
-      //     // }
-      //
-      //     $oldpath = $_FILES['tmp_name'];
-      //     $newpath = $path.$_FILES['name'];
-      //     move_uploaded_file($oldpath, $newpath);
-
-
+    };
   ?>

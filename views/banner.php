@@ -9,7 +9,7 @@
 <div class="dropdown">
   <button onclick="myFunction()" class="dropbtn"></button>
   <div id="myDropdown" class="dropdown-content">
-    <a href="/editprofile.php">Eddit profile</a>
+    <a href="/editprofile.php">Edit profile</a>
     <a href="/logout.php">Sign out</a>
   </div >
 </div>

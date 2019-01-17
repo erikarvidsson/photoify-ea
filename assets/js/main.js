@@ -22,24 +22,13 @@ likeForms.forEach((likeForm) => {
         }
 
 
-        fetch('app/users/likes.php', {
+        fetch('app/posts/likes.php', {
             method: 'POST',
             body: formData
           })
           .then(response => response.json())
           .then(json => likeForm.nextElementSibling.children[0].textContent = `Likes: ${json.likes}`) ;
 
-          // (input.value === 'liked') ? heart2.classList.add('liked') : heart2.classList.remove('liked')
-        // fetch('app/users/likes.php', {
-        //     method: 'POST',
-        //     body: formData
-        //   })
-        //   .then(response => response.json())
-          // .then(json => likeBtn.heart = heart.likes);
-          // // .then(json => {
-          // //   const likeButton = likeForm.querySelector('button')
-          // //   likeButton.classList.toggle('liked')
-        //   // // })
 
                 let btnId = likeForm.dataset.id;
                 console.log(btnId)

@@ -6,11 +6,11 @@ require __DIR__.'/app/users/newaccount.php';
 
 <div class="newprofile-container">
   <form class="" action="newprofile.php" method="post" enctype="multipart/form-data">
-    <input name="first-name" placeholder="First Name"></input>
-    <input name="last-name" placeholder="Last Name"></input>
-    <input name="user-name" placeholder="User Name"></input>
-    <input name="email" placeholder="email"></input>
-    <input name="password" placeholder="Password" type="password" autocomplete="off"></input>
+    <input name="first-name" placeholder="First Name" required></input>
+    <input name="last-name" placeholder="Last Name" required></input>
+    <input name="user-name" placeholder="User Name" required></input>
+    <input name="email" placeholder="email" required></input>
+    <input name="password" placeholder="Password" type="password" autocomplete="off" required></input>
     <input name="user_text" placeholder="About"></input>
     <button type="submit" name="button"> Create</button>
   </form>

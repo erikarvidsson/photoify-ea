@@ -8,7 +8,6 @@
       $email = $_SESSION['user']['email'];
 
       $statement = $pdo->prepare('SELECT * FROM users WHERE email = :email');
-      // $statement = $pdo->prepare('SELECT * FROM users');
       if(!$statement){
         die(var_dump($pdo->errorInfo()));
       }
@@ -17,8 +16,6 @@
       $statement->execute();
 
       $currentusers = $statement->fetch(PDO::FETCH_ASSOC);
-
-      // return($users);
     }
 
 if (isset($_POST['first-name'], $_POST['last-name'], $_POST['user-name'], $_POST['email'], $_POST['user_text'])){
@@ -29,16 +26,10 @@ if (isset($_POST['first-name'], $_POST['last-name'], $_POST['user-name'], $_POST
       $email = filter_var($_POST['email'], FILTER_SANITIZE_STRING);
       $usertext = nl2br(filter_var($_POST['user_text'], FILTER_SANITIZE_STRING));
       $id = $_SESSION['user']['id'];
-
-
-
+      
 
       $statement = $pdo->prepare('UPDATE users SET last_name = :last_name, first_name = :first_name, email = :email, username = :username,
         user_text = :user_text WHERE id = :user_id');
-
-      // $statement = $pdo->prepare('UPDATE users(last_name, first_name, email, username, password, profile_img, signup_date, user_text)
-      // VALUES(:last_name, :first_name, :email, :username, :password, :profile_img, :signup_date, :user_text ) WHERE id = $id');
-
 
       if(!$statement){
         die(var_dump($pdo->errorInfo()));

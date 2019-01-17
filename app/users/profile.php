@@ -11,7 +11,4 @@ $profileInfo = selectUserProfile($userId, $pdo);
 
 $imgs = selectUserPost($userId, $pdo);
 
-
-
-
   ?>

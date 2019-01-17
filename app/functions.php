@@ -34,8 +34,7 @@ return $imgs;
 }
 
 
-
-
+// selects the user info from database
 function selectUserProfile(int $userId, object $pdo){
   $statement = $pdo->prepare('SELECT * FROM users WHERE id = :user_id');
   // $statement = $pdo->prepare('SELECT * FROM users');
@@ -48,13 +47,15 @@ function selectUserProfile(int $userId, object $pdo){
 
   $profileInfo = $statement->fetch(PDO::FETCH_ASSOC);
 
-return $profileInfo;
+  return $profileInfo;
 }
 
+// checks if the user is logedin
 function if_user_loggedin(){
   return isset($_SESSION['user']);
 }
 
+// checs if the user is the owner
 function is_user_owner(int $a, int $b) : bool{
   return $a === $b;
 }

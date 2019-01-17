@@ -20,11 +20,12 @@ if (isset($_POST['email'], $_POST['password'])){
 
 
 
-      if(password_verify($password, $passwordDb)){
+  if(password_verify($password, $passwordDb)){
 
-        $_SESSION['user'] = $users;
+    $_SESSION['user'] = $users;
 
-        redirect('/');
-      }
-    redirect('/login.php');
+    redirect('/');
+
+  }
+  redirect('/login.php');
 }

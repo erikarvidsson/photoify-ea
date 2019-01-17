@@ -4,7 +4,6 @@ if(!if_user_loggedin()){
   redirect('/');
 }
 
-
     if (isset($_SESSION['user']['id'])){
 
       if(isset($_GET['post_id'])){
@@ -12,10 +11,7 @@ if(!if_user_loggedin()){
       }
       $userId = (int) $_SESSION['user']['id'];
 
-
-
       $statement = $pdo->prepare('SELECT * FROM posts WHERE p_id = :user_id');
-      // $statement = $pdo->prepare('SELECT * FROM users');
       if(!$statement){
         die(var_dump($pdo->errorInfo()));
       }
@@ -25,10 +21,12 @@ if(!if_user_loggedin()){
 
       $post = $statement->fetch(PDO::FETCH_ASSOC);
 
+      // checks if the user is the owner of post
       if(!is_user_owner((int) $post['user_id'], $userId)){
         redirect('/posts.php');
       }
 
+// changes the post text
 if (isset($_POST['post-text'])){
 
       $statement = $pdo->prepare('UPDATE posts SET post_text = :post_text WHERE p_id = :post_id');
@@ -44,6 +42,7 @@ if (isset($_POST['post-text'])){
 
   }
 
+// deletes the post
 if(isset($_POST['delete'])){
   // delete post img
   $statement = $pdo->prepare('SELECT img FROM posts WHERE p_id = :id');
@@ -77,7 +76,6 @@ if(isset($_POST['delete'])){
   redirect('/posts.php');
 
 }
-
 };
 
-  ?>
+?>
