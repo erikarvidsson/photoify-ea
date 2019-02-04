@@ -25,3 +25,5 @@ Photoify
 
 ## License
 This project is licensed under the MIT License. Please see [LICENSE](https://github.com/erikarvidsson/photoify-ea/blob/master/LICENSE) file for details.
+
+https://github.styleci.io/repos/7548986/shield?style=plastic&branch=5.1
