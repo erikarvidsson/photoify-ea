@@ -5,12 +5,14 @@ if (!if_user_loggedin()) {
     redirect('/');
 }
 
-if (isset($_POST['post_id'], $_POST['action'])) {
+if (isset($_POST['post_id'], $_POST['action']))
+
+{
     $action = trim(filter_var($_POST['action'], FILTER_SANITIZE_STRING));
     $postId = filter_var($_POST['post_id'], FILTER_SANITIZE_NUMBER_INT);
     $userId = $_SESSION['user']['id'];
 
-    if ($action === 'disliked') {
+    if ($action === 'disliked'){
         $statement = $pdo->query("DELETE FROM likes WHERE post_id = '$postId' AND like_user_id = '$userId';");
 
         if (!$statement) {
