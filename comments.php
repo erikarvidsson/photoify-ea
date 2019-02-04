@@ -5,8 +5,8 @@ require __DIR__.'/views/banner.php';
 
 $statement = $pdo->prepare('SELECT * FROM `users` AS u
   INNER JOIN `comments` AS c ON c.user_id = u.id WHERE c.user_id = u.id');
-  if(!$statement){
-    die(var_dump($pdo->errorInfo()));
+  if (!$statement) {
+      die(var_dump($pdo->errorInfo()));
   }
 
   $statement->execute();
@@ -19,8 +19,8 @@ $postId = $_GET['post_id'];
 
 $statement = $pdo->prepare('SELECT img FROM posts WHERE p_id = :id');
 
-  if(!$statement){
-    die(var_dump($pdo->errorInfo()));
+  if (!$statement) {
+      die(var_dump($pdo->errorInfo()));
   }
 
   $statement->bindParam(':id', $postId, PDO::PARAM_STR);
@@ -32,7 +32,7 @@ $statement = $pdo->prepare('SELECT img FROM posts WHERE p_id = :id');
 <div class="comments-container">
   <img src="/app/img/post_img/<?= $postImg['img'] ?>">
   <?php foreach ($comments as $comment) :?>
-  <?php  if($postId == $comment['post_id']):?>
+  <?php  if ($postId == $comment['post_id']):?>
     <h4> <?= $comment['username'] ?> <span class="comment-date"> <?= $comment['comment_date'] ?></span></h4>
     <h3> <?= $comment['comment'] ?></h3>
   <?php endif ;?>

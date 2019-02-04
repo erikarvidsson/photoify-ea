@@ -8,11 +8,11 @@ require __DIR__.'/app/users/editprofile.php';
 <div class="profile-site">
   <div class="profile-top">
     <!-- show default profile picture if non is chosen -->
-    <img class="profile-img" src="/app/img/profile_img/<?php if(empty($_SESSION['user']['profile_img'])){
-      echo 'default.jpg';
-    } else{
-      echo $_SESSION['user']['profile_img'];
-    }?>">
+    <img class="profile-img" src="/app/img/profile_img/<?php if (empty($_SESSION['user']['profile_img'])) {
+    echo 'default.jpg';
+} else {
+    echo $_SESSION['user']['profile_img'];
+}?>">
     <p class="profile-name"><?= $_SESSION['user']['username']; ?> </p>
   </div>
   <div class="profile-form-box">

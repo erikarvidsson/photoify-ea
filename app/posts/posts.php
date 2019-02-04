@@ -1,12 +1,12 @@
 <?php
 // get post username by user id
-if(!if_user_loggedin()){
-  redirect('/');
+if (!if_user_loggedin()) {
+    redirect('/');
 }
 $statement = $pdo->prepare('SELECT username, user_id, post_text, img, p_id, post_date FROM `users` AS u
   INNER JOIN `posts` AS p ON p.user_id = u.id');
-  if(!$statement){
-    die(var_dump($pdo->errorInfo()));
+  if (!$statement) {
+      die(var_dump($pdo->errorInfo()));
   }
 
   $statement->execute();
@@ -28,8 +28,8 @@ $statement = $pdo->prepare('SELECT username, user_id, post_text, img, p_id, post
 
     $statement = $pdo->prepare('SELECT post_id, like_user_id FROM `likes` AS l
       INNER JOIN `posts` AS p ON p.p_id = l.post_id WHERE post_id = :post_id');
-      if(!$statement){
-        die(var_dump($pdo->errorInfo()));
+      if (!$statement) {
+          die(var_dump($pdo->errorInfo()));
       }
       $statement->bindParam(':post_id', $postId, PDO::PARAM_INT);
       $statement->execute();
@@ -39,8 +39,8 @@ $statement = $pdo->prepare('SELECT username, user_id, post_text, img, p_id, post
 
 
       $statement = $pdo->prepare('SELECT like_user_id FROM likes WHERE post_id = :post_id AND like_user_id = :user_id');
-      if(!$statement){
-        die(var_dump($pdo->errorInfo()));
+      if (!$statement) {
+          die(var_dump($pdo->errorInfo()));
       }
       $statement->bindParam(':post_id', $postId, PDO::PARAM_INT);
       $statement->bindParam(':user_id', $_SESSION['user']['id'], PDO::PARAM_INT);
@@ -50,9 +50,9 @@ $statement = $pdo->prepare('SELECT username, user_id, post_text, img, p_id, post
 
 
       if ($liked) {
-        $action = 'disliked';
+          $action = 'disliked';
       } else {
-        $action = 'liked';
+          $action = 'liked';
       }
       ?>
 
@@ -61,11 +61,11 @@ $statement = $pdo->prepare('SELECT username, user_id, post_text, img, p_id, post
         <h4 class="postdate"><?= $postDate ;?></h4>
       </div>
       <!-- makes img edditble if logged in -->
-      <?php if((int)$userId === (int)$_SESSION['user']['id']) : ?>
+      <?php if ((int)$userId === (int)$_SESSION['user']['id']) : ?>
         <a href="/editpost.php?post_id=<?= $postId; ?>">
         <?php endif ; ?>
         <img src="/app/img/<?= $src ?>" alt="lala">
-        <?php if((int)$userId === (int)$_SESSION['user']['id']) : ?>
+        <?php if ((int)$userId === (int)$_SESSION['user']['id']) : ?>
         </a>
       <?php endif ; ?>
       <!-- like counter -->
